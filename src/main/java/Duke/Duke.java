@@ -1,6 +1,9 @@
+package Duke;
+
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Duke {
     public static void main(String[] args) {
@@ -10,7 +13,7 @@ public class Duke {
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
         System.out.println("Hello from\n" + logo);
-        System.out.println("Hello! I'm Duke" + System.lineSeparator() + "What can I do for you?");
+        System.out.println("Hello! I'm Duke.Duke" + System.lineSeparator() + "What can I do for you?");
 
         String dataIn;
         //int index = 0;
@@ -99,7 +102,7 @@ public class Duke {
                 //arry[i] = "[ ][ ] " + dataIn;
                 //count++;
                 //System.out.println("added: " + arry[i].substring(7));
-                //Task t = new Task(dataIn);
+                //Duke.Task t = new Duke.Task(dataIn);
                 //arry.add(t);
                 //count++;
                 //System.out.println("added: " + arry.get(arry.size()-1).getDescription());
