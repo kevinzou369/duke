@@ -25,6 +25,7 @@ public class Duke {
         String todo = "todo";
         String deadline = "deadline";
         String event = "event";
+        String delete = "delete";
         Scanner scan = new Scanner(System.in);
         //for (int i = 0; i < arry.size(); i++)
         do {
@@ -56,7 +57,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task:");
                     System.out.println("  " + arry.get(count - 1).toString());
                     System.out.println("Now you have " + arry.size() + " tasks in the list.");
-                } catch (Exception e) {
+                } catch (IndexOutOfBoundsException e) {
                     System.out.println("☹ OOPS!!! The description of a todo cannot be empty.");
                 }
             }else if (dataIn.contains(deadline)) {
@@ -68,7 +69,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task:");
                     System.out.println("  " + arry.get(count - 1).toString());
                     System.out.println("Now you have " + arry.size() + " tasks in the list.");
-                } catch (Exception e) {
+                } catch (IndexOutOfBoundsException e) {
                     System.out.println("☹ OOPS!!! The description of a deadline cannot be empty.");
                 }
             }else if (dataIn.contains(event)) {
@@ -80,8 +81,19 @@ public class Duke {
                     System.out.println("Got it. I've added this task:");
                     System.out.println("  " + arry.get(count - 1).toString());
                     System.out.println("Now you have " + arry.size() + " tasks in the list.");
-                } catch (Exception e) {
+                } catch (IndexOutOfBoundsException e) {
                     System.out.println("☹ OOPS!!! The description of a event cannot be empty.");
+                }
+            }else if (dataIn.contains(delete)) {
+                try {
+                    Integer num = Integer.parseInt(dataIn.replaceAll("[\\D]", ""));
+                    count--;
+                    System.out.println("Noted. I've removed this task:");
+                    System.out.println("  " + arry.get(num-1).toString());
+                    arry.remove(num-1);
+                    System.out.println("Now you have " + arry.size() + " tasks in the list.");
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("☹ OOPS!!! The index of a delete cannot be empty.");
                 }
             }else{
                 //arry[i] = "[ ][ ] " + dataIn;
