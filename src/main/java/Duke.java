@@ -35,7 +35,7 @@ public class Duke {
             }else if (dataIn.equals(show)){
                 System.out.println("Here are the tasks in your list:");
                 for (int j = 0; j < arry.size(); j++){
-                    System.out.println(j + 1 + ".[" + arry.get(j).getStatusIcon() + "] " + arry.get(j).getDescription());
+                    System.out.println(j + 1 + "." + arry.get(j).toString().substring(0,3) + "[" + arry.get(j).getStatusIcon() + "] " + arry.get(j).toString().substring(7));
                 }
             }else if (dataIn.contains(done)) {
                 Integer num = Integer.parseInt(dataIn.replaceAll("[\\D]",""));
@@ -45,11 +45,28 @@ public class Duke {
                 //System.out.println("  " + arry[num-1].substring(3));
                 System.out.println("  [" + arry.get(num-1).getStatusIcon() + "] " + arry.get(num-1).getDescription());
             }else if (dataIn.contains(todo)) {
-
+                Task t = new Todo(dataIn.substring(5));
+                arry.add(t);
+                count++;
+                System.out.println("Got it. I've added this task:");
+                System.out.println("  " + arry.get(count-1).toString());
+                System.out.println("Now you have " + arry.size() + " tasks in the list.");
             }else if (dataIn.contains(deadline)) {
-
+                int idx = dataIn.indexOf("/");
+                Task t = new Deadline(dataIn.substring(9,idx-1), dataIn.substring(idx+4));
+                arry.add(t);
+                count++;
+                System.out.println("Got it. I've added this task:");
+                System.out.println("  " + arry.get(count-1).toString());
+                System.out.println("Now you have " + arry.size() + " tasks in the list.");
             }else if (dataIn.contains(event)) {
-
+                int idx = dataIn.indexOf("/");
+                Task t = new Event(dataIn.substring(6,idx-1), dataIn.substring(idx+4));
+                arry.add(t);
+                count++;
+                System.out.println("Got it. I've added this task:");
+                System.out.println("  " + arry.get(count-1).toString());
+                System.out.println("Now you have " + arry.size() + " tasks in the list.");
             }else{
                 //arry[i] = "[ ][ ] " + dataIn;
                 //count++;
