@@ -132,7 +132,6 @@ public class Duke {
                     String c = arry.get(num-1).toString();
                     int idx2 = c.indexOf("(");
                     Task t = new Deadline(c.substring(7,idx2-1), dataIn.substring(idx + 4));
-                    System.out.println(arry.get(num-1).toString().substring(1,2));
                     if (arry.get(num-1).toString().substring(1,2).equals("D")) {
                         arry.set(num-1,t);
                         System.out.println("Noted. I've snoozed this task:");
@@ -141,7 +140,7 @@ public class Duke {
                     }else {
                         System.out.println("You can only snooze the deadline tasks.");
                     }
-                } catch (IndexOutOfBoundsException e) {
+                } catch (Exception e) {
                     System.out.println("☹ OOPS!!! The index of a snooze cannot be empty.");
                 }
             }else if (dataIn.contains(find)) {
